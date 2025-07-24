@@ -1,4 +1,7 @@
 
+import Footer from "./components/Footer"
+import Header from "./components/Header"
+import Hero from "./components/Hero"
 
 
 function App() {
@@ -6,7 +9,13 @@ function App() {
 
   return (
     <>
-      <h1 className="text-3xl">Begin of the project the project  i already add taiwindcss into it</h1>
+      <div className="min-h-screen flex flex-col mx-12">
+      <Header/>
+       <Hero/>
+       <Footer/>
+      </div>
+     
+  
     </>
   )
 }
