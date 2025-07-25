@@ -2,10 +2,11 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaSquareGooglePlus } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 
-const STORAGE_KEY = "inkwellUser";
+
 
 const Login = () => {
   
+  const STORAGE_KEY =  import.meta.env.VITE_STORAGE_KEY;
   const handleLogin = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -18,13 +19,13 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-[#2d315e] text-white">
+    <div className="flex flex-col items-center min-h-screen  text-white">
       <div className="w-full max-w-md py-16">
         <div className="w-full flex-1 px-2">
           <h1 className="text-white text-2xl">Welcome Back!!</h1>
           <p className="text-white text-sm mt-2">Please sign in to continue</p>
 
-          <form onSubmit={handleLogin} className="mt-8">
+          <form onSubmit={handleLogin} className="mt-8 flex flex-col gap-3">
             <label
               className="text-white font-medium text-sm mb-4"
               htmlFor="email"
@@ -32,15 +33,13 @@ const Login = () => {
               Email:
             </label>
             <input
-              
               name="email"
-              className="w-full px-8 py-4 font-medium text-sm text-[#676f69] border-[#676f69] placeholder-[#343476] text-sm focus:outline-none focus:border-[#9fb17a] focus:bg-[#414760]"
+              className="inputstyle"
               type="email"
               id="email"
               placeholder="john@demo.com"
               required
             />
-
             <label
               className="text-white font-medium text-sm mt-4"
               htmlFor="password"
@@ -48,9 +47,8 @@ const Login = () => {
               Password:
             </label>
             <input
-          
               name="password"
-              className="w-full px-8 py-4 font-medium text-sm text-[#676f69] border-[#676f69] placeholder-[#343476] text-sm focus:outline-none focus:border-[#9fb17a] focus:bg-[#414760] mt-5"
+              className="inputstyle"
               type="password"
               id="password"
               placeholder="***********"
@@ -64,8 +62,7 @@ const Login = () => {
               Sign In
             </button>
           </form>
-
-          <div className="px-2 text-sm text-white font-medium bg-[#2d315e] transform translate-y-1/2 mt-6">
+          <div className="px-2 text-sm text-white font-medium  transform translate-y-1/2 mt-6">
             Use social media
             <div className="mt-4 flex">
               <FaFacebookSquare className="size-7 mx-2 text-[#676f69] hover:text-[#9fb17a] cursor-pointer" />
