@@ -2,53 +2,81 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaSquareGooglePlus } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 
+const STORAGE_KEY = "inkwellUser";
+
 const Login = () => {
+  
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = {
+      email: formData.get("email"),
+      password: formData.get("password"),
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    
+  };
+
   return (
-     <div className=" flex flex-col items-center">
-      
-      
-        <div className="w-full flex-1 mt-22 px-8">
-            <h1 className="text-white text-2xl">Welcome Back!</h1>
-            <p className="text-amber-50 text-sm mb-8">please signin to continue</p>
-             <div className="flex flex-col">
-              <label className="text-white font-medium text-sm mb-4" for="email"> Email:  </label>
+    <div className="flex flex-col items-center min-h-screen bg-[#2d315e] text-white">
+      <div className="w-full max-w-md py-16">
+        <div className="w-full flex-1 px-2">
+          <h1 className="text-white text-2xl">Welcome Back!!</h1>
+          <p className="text-white text-sm mt-2">Please sign in to continue</p>
+
+          <form onSubmit={handleLogin} className="mt-8">
+            <label
+              className="text-white font-medium text-sm mb-4"
+              htmlFor="email"
+            >
+              Email:
+            </label>
             <input
-              className="w-full px-8 py-4  font-medium bg-[#676f9d] border border-[#676f9d] placeholder-[#434769] text-sm focus:outline-none focus:border-[#f9b17a] focus:bg-[#414769]"
+              
+              name="email"
+              className="w-full px-8 py-4 font-medium text-sm text-[#676f69] border-[#676f69] placeholder-[#343476] text-sm focus:outline-none focus:border-[#9fb17a] focus:bg-[#414760]"
               type="email"
               id="email"
-              placeholder="John@demo.com"
+              placeholder="john@demo.com"
+              required
             />
-          
-            <label className="text-white font-medium text-sm mt-4" for="password"> Password:     </label>
+
+            <label
+              className="text-white font-medium text-sm mt-4"
+              htmlFor="password"
+            >
+              Password:
+            </label>
             <input
-              className="w-full px-8 py-4 font-medium bg-[#676f9d] border border-[#676f9d] placeholder-[#434769] text-sm focus:outline-none focus:border-[#f9b17a] focus:bg-[#414769] mt-5"
+          
+              name="password"
+              className="w-full px-8 py-4 font-medium text-sm text-[#676f69] border-[#676f69] placeholder-[#343476] text-sm focus:outline-none focus:border-[#9fb17a] focus:bg-[#414760] mt-5"
               type="password"
               id="password"
-              placeholder="*********"
+              placeholder="***********"
+              required
             />
-       
-            <button className="text-[#2d3250] mt-5 cursor-pointer  border-2 border-[#f9b17a] tracking-wide font-semibold bg-[#f9b17a] hover:bg-[#2d3250] hover:text-[#f9b17a] w-1/2 py-2 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-        
+
+            <button
+              type="submit"
+              className="text-[#2d315e] mt-5 cursor-pointer border-2 border-[#9fb17a] tracking-wide font-semibold bg-[#9fb17a] hover:bg-[#2d315e] hover:text-[#9fb17a] w-1/2 py-2 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+            >
               Sign In
             </button>
-        
-          </div>
-    
-            <div className="px-2 text-sm text-white  font-medium bg-[#2d3250]  transform translate-y-1/2">
-              Use social media
-              <div className="mt-4 flex">
-                 <FaFacebookSquare className="size-7 mx-2 text-[#676f9d] hover:text-[#f9b17a] cursor-pointer" />
-                 <FaSquareGooglePlus className="size-7 mx-2 text-[#676f9d] hover:text-[#f9b17a] cursor-pointer"  />
-                 <FaGithub className="size-7 mx-2 text-[#676f9d] hover:text-[#f9b17a] cursor-pointer" />
-              </div>
-             
+          </form>
+
+          <div className="px-2 text-sm text-white font-medium bg-[#2d315e] transform translate-y-1/2 mt-6">
+            Use social media
+            <div className="mt-4 flex">
+              <FaFacebookSquare className="size-7 mx-2 text-[#676f69] hover:text-[#9fb17a] cursor-pointer" />
+              <FaSquareGooglePlus className="size-7 mx-2 text-[#676f69] hover:text-[#9fb17a] cursor-pointer" />
+              <FaGithub className="size-7 mx-2 text-[#676f69] hover:text-[#9fb17a] cursor-pointer" />
             </div>
-         
-        
-            
+          </div>
         </div>
       </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Login
+export default Login;
