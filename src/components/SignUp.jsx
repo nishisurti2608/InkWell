@@ -12,19 +12,22 @@ const SignUp = () => {
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    if(password ===repeatPassword){
-      const data = {
-        email: email,
-        password: password,
-      };
-      setPassword("")
-      setRepeatPassword("")
-      setEmail("")
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-      setMessage({success:"register success"})
-    }else {
-      setMessage({error:"error password don't match"})
+    if (!email || !password || !repeatPassword) {
+      setMessage({ error: "Please fill all the form fields." });
+      return;
     }
+
+    if (password !== repeatPassword) {
+      setMessage({ error: "Passwords do not match." });
+      return;
+    }
+
+    const data = { email, password };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    setEmail("");
+    setPassword("");
+    setRepeatPassword("");
+    setMessage({ success: "Register success" });
   };
 
   useEffect(() => {
