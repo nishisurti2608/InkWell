@@ -77,3 +77,5 @@ const Login = () => {
 };
 
 export default Login;
+
+// This code defines a Login component that allows users to log in using their email and password.
