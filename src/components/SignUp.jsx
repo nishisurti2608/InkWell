@@ -27,6 +27,7 @@ const[message,setMessage] = useState(" ")
 
 
     const email=formData.get("email")
+    const name = formData.get("name")
     const password = formData.get("password")
     const confirmPassword = formData.get("confirmpassword")
 
@@ -43,7 +44,7 @@ const[message,setMessage] = useState(" ")
     }
 
 
-    const data = {email, password}
+    const data = {email, password,name}
     console.log(data)
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     setMessage("Done! Please Login")
@@ -62,13 +63,21 @@ const[message,setMessage] = useState(" ")
                   HandleSignUp(new FormData(e.target));
                 }}
               >
-
               <label className="text-white font-medium text-sm mb-4" htmlFor="email"> Email:  </label>
             <input
               className="w-full px-8 py-4  font-medium bg-[#676f9d] border border-[#676f9d] placeholder-[#434769] text-sm focus:outline-none focus:border-[#f9b17a] focus:bg-[#414769]"
               type="email"
               name="email"
               placeholder="John@demo.com"
+              required
+
+            />
+            <label className="text-white font-medium text-sm mb-4" htmlFor="email">Name:  </label>
+            <input
+              className="w-full px-8 py-4  font-medium bg-[#676f9d] border border-[#676f9d] placeholder-[#434769] text-sm focus:outline-none focus:border-[#f9b17a] focus:bg-[#414769]"
+              type="text"
+              name="name"
+              placeholder="John"
               required
 
             />
