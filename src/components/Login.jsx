@@ -7,6 +7,7 @@ import { FaGithub } from "react-icons/fa";
 const Login = () => {
   
   const STORAGE_KEY =  import.meta.env.VITE_STORAGE_KEY;
+
   const handleLogin = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -55,21 +56,20 @@ const Login = () => {
               required
             />
 
-            <button
-              type="submit"
-              className="text-[#2d315e] mt-5 cursor-pointer border-2 border-[#9fb17a] tracking-wide font-semibold bg-[#9fb17a] hover:bg-[#2d315e] hover:text-[#9fb17a] w-1/2 py-2 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
-            >
-              Sign In
-            </button>
+                            <button
+                                  type="submit"
+                                  className="text-[#2d3250] mt-5 cursor-pointer  border-2 border-[#f9b17a] tracking-wide font-semibold bg-[#f9b17a] hover:bg-[#2d3250] hover:text-[#f9b17a] w-1/2 py-2 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                                  Sign In
+                            </button>
           </form>
-          <div className="px-2 text-sm text-white font-medium  transform translate-y-1/2 mt-6">
-            Use social media
-            <div className="mt-4 flex">
-              <FaFacebookSquare className="size-7 mx-2 text-[#676f69] hover:text-[#9fb17a] cursor-pointer" />
-              <FaSquareGooglePlus className="size-7 mx-2 text-[#676f69] hover:text-[#9fb17a] cursor-pointer" />
-              <FaGithub className="size-7 mx-2 text-[#676f69] hover:text-[#9fb17a] cursor-pointer" />
+           <div className="px-2 text-sm text-white  font-medium bg-[#2d3250]  transform translate-y-1/2">
+              Use social media
+              <div className="mt-4 flex">
+                 <FaFacebookSquare className="size-7 mx-2 text-[#676f9d] hover:text-[#f9b17a] cursor-pointer" />
+                 <FaSquareGooglePlus className="size-7 mx-2 text-[#676f9d] hover:text-[#f9b17a] cursor-pointer"  />
+                 <FaGithub className="size-7 mx-2 text-[#676f9d] hover:text-[#f9b17a] cursor-pointer" />
+              </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
