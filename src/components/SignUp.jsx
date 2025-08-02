@@ -32,6 +32,7 @@ const[message,setMessage] = useState(" ")
 
     const name = formData.get("name")
     const email=formData.get("email")
+    const name = formData.get("name")
     const password = formData.get("password")
     const confirmPassword = formData.get("confirmpassword")
 
@@ -50,6 +51,7 @@ const[message,setMessage] = useState(" ")
     //setting data in localstorage
 
     const data = {name,email, password}
+
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     setMessage("Done! Please Login")
 
@@ -59,8 +61,7 @@ const[message,setMessage] = useState(" ")
      <div className=" flex flex-col items-center">
         <div className="w-full flex-1 mt-22 px-2">
             <h1 className="text-white text-2xl">Register Here!</h1>
-             <p className="text-amber-50 text-sm mb-8">please signup to continue</p>
-                  <div className="flex flex-col text-white">
+
           
                            <form action={HandleSignUp}>
                                <label className="text-white font-medium text-sm mb-4" htmlFor="name"> Name:  </label>
