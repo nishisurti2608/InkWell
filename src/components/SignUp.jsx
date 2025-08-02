@@ -30,26 +30,26 @@ const[message,setMessage] = useState(" ")
   function HandleSignUp(formData){
 
 
-    const name = formData.get("name")
-    const email=formData.get("email")
-    const password = formData.get("password")
-    const confirmPassword = formData.get("confirmpassword")
+    const registeredUserName = formData.get("name")
+    const registeredUserEmail=formData.get("email")
+    const registeredUserPassword = formData.get("password")
+    const registeredUserConfirmPassword = formData.get("confirmpassword")
 
     // Validation for password matching
 
-    if(password !== confirmPassword){
+    if(registeredUserPassword !== registeredUserConfirmPassword){
       setMessage("Passwords do not match! Try again")
       return
     }
 
-    if (password.length < 6) {
+    if (registeredUserPassword.length < 6) {
        setMessage( "Password must be at least 6 characters long" );
        return;
     }
 
     //setting data in localstorage
 
-    const data = {name,email, password}
+    const data = {registeredUserName,registeredUserEmail, registeredUserPassword}
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     setMessage("Done! Please Login")
 

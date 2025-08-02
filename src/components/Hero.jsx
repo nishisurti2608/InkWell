@@ -10,7 +10,7 @@ import { useState } from "react"
 
 
 const Hero = () => {
-  const[login,setLogin] = useState(false)
+  const[login,setLogin] = useState(true)
 
   function handleClick(){
     setLogin(prev => !prev)

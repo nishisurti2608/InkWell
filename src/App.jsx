@@ -7,6 +7,7 @@ import ContactUs from "./components/pages/ContactUs"
 import Membership from "./components/pages/Membership"
 import OurStory from "./components/pages/OurStory"
 import Write from "./components/pages/Write"
+import Dashboard from "./components/Dashboard"
 
 function App() {
 
@@ -22,9 +23,9 @@ function App() {
         <Route path="/membership" element={<Membership />} />
         <Route path="/ourstory" element={<OurStory />} />
         <Route path="/write" element={<Write />} />
-
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-     
+    
     
        <Footer/>
       </div>

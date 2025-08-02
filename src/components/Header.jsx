@@ -1,9 +1,47 @@
 
 import logo from "../assets/logo.png"
-import {Link} from "react-router-dom"
+import {Link,useNavigate,useLocation} from "react-router-dom"
+import { useState,useEffect } from "react"
 
 
 const Header = () => {
+
+  //state to maintain sigin button text
+
+const[buttonText,setButtonText] = useState("Sign In")
+
+//initializing navigation and location
+
+const navigate = useNavigate();
+const location = useLocation();
+
+//when component load set button text 
+
+useEffect(() => {
+  //making sure that user is logged in 
+
+  const isLoggedIn = localStorage.getItem("isLoggedIn")
+
+  //resetting button text upon isLoggedin value and want to render this component everytime when path changes
+
+
+  setButtonText(isLoggedIn === "true" ? "Sign Out" : "Sign In")
+}, [location])
+
+//logging out user on button click 
+
+const handleAuthClick = () => {
+  if (buttonText === "Sign Out") {
+    // log out user
+    localStorage.removeItem("isLoggedIn")
+    setButtonText("Sign In")
+    navigate("/") // go back to homepage
+  } 
+  else {
+    navigate("/")
+  }
+}
+
   return (
     <>
     <header className="flex items-center my-4 ">
@@ -25,7 +63,7 @@ const Header = () => {
   
          </nav>
 
-      <button className="text-[#2d3250] font-medium cursor-pointer border-2 px-4 py-2 bg-[#f9b17a] hover:bg-[#2d3250] hover:text-[#f9b17a] ml-auto ">Sign In</button>
+      <button onClick={handleAuthClick} className="text-[#2d3250] font-medium cursor-pointer border-2 px-4 py-2 bg-[#f9b17a] hover:bg-[#2d3250] hover:text-[#f9b17a] ml-auto ">{buttonText}</button>
  
    
  
@@ -38,4 +76,4 @@ const Header = () => {
  
 }
 
-export default Header
+export default Header;
