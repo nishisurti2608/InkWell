@@ -47,7 +47,7 @@ const[message,setMessage] = useState(" ")
     
     //data parsing from string to object and destructuring on the fly
 
-    const {registeredUserEmail,registeredUserPassword} = JSON.parse(data);
+    const {registeredUserName,registeredUserEmail,registeredUserPassword} = JSON.parse(data);
 
     //checking data is matching with local storage or not 
 
@@ -66,6 +66,7 @@ const[message,setMessage] = useState(" ")
 // all conditions passed then go to dashboard and setting isLoggedIn to true
 
 localStorage.setItem("isLoggedIn", "true");
+localStorage.setItem("userName", registeredUserName);
 navigate("/dashboard"); 
 
     

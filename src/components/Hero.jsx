@@ -23,11 +23,11 @@ const Hero = () => {
     <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
     <div className="flex">
             <p
-  className={`text-sm xl:text-md font-extrabold mx-4 cursor-pointer ${
+  className={`text-sm xl:text-md font-extrabold mx-4 cursor-pointer hover:text-white ${
     login ? 'text-white underline decoration-[#f9b17a]' : 'text-[#676f9d]'
   }`} onClick={handleClick} >SignIn</p>
 <p
-  className={`text-sm xl:text-md font-extrabold cursor-pointer ${
+  className={`text-sm xl:text-md font-extrabold cursor-pointer hover:text-white  ${
     !login ? 'text-white underline decoration-[#f9b17a]' : 'text-[#676f9d]'
   }`} onClick={handleClick}>SignUp</p>
         </div>

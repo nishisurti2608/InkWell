@@ -34,6 +34,7 @@ const handleAuthClick = () => {
   if (buttonText === "Sign Out") {
     // log out user
     localStorage.removeItem("isLoggedIn")
+    localStorage.removeItem("userName")
     setButtonText("Sign In")
     navigate("/") // go back to homepage
   } 
