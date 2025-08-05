@@ -44,6 +44,13 @@ const[message,setMessage] = useState(" ")
 
 
     const data  = localStorage.getItem(STORAGE_KEY);
+
+    //checking if data is present in local storage or not
+
+     if (!data) {
+      setMessage("User not found! Please sign up");
+      return;
+    }
     
     //data parsing from string to object and destructuring on the fly
 
@@ -52,14 +59,14 @@ const[message,setMessage] = useState(" ")
     //checking data is matching with local storage or not 
 
     if(registeredUserEmail !== userEnteredEmail){
-      setMessage("User not found! Try again")
-      return
+      setMessage("User not found! Please sign up");
+      return;
     }
 
 
     if(registeredUserPassword !== userEnteredPassword){
       setMessage("Password is not correct! Try again")
-      return
+      return;
     }
 
 
