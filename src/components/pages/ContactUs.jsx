@@ -1,16 +1,22 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import emailjs from "emailjs-com";
-const ContactUs = () => {
-  const [message,setMessage] = useState();
-    const form = useRef();
 
-    //champ du formulaire du contact 
+const ContactUs = () => {
+
+  //state for error or success messages
+
+  const [message,setMessage] = useState();
+  
+  //I have no idea why are we looping over input array 🤣
+ 
   const input = [
-    { title:"Subject", type:"text",placeholder:""},
-    { title: "Name",type: "text",placeholder: "",},
-    { title: "Email",type: "email", placeholder: "joan@gmail.com"},
-    {  title: "Message",  type: "textarea", placeholder: ""}
+    { title:"Subject", type:"text",placeholder:"Facing issues with Membership"},
+    { title: "Name",type: "text",placeholder: "John Mathew",},
+    { title: "Email",type: "email", placeholder: "john@gmail.com"},
+    {  title: "Message",  type: "textarea", placeholder: "Please type detail message here"}
   ];
+
+  // displaying messages for few seconds 
 
     useEffect(() => {
         if (message) {
@@ -20,6 +26,8 @@ const ContactUs = () => {
           return () => clearTimeout(timeout);
         }
       }, [message]);
+
+// This function will call on form action this contains real beef logic
 
   const HandleContact = async (formData) => {
       const data = {
@@ -41,23 +49,19 @@ const ContactUs = () => {
               import.meta.env.VITE_EMAIL_PUBLIC_KEY
             );
 
-            setMessage("Votre message a été envoyé avec succès !");
+            setMessage("Message has been sent successfully !");
           } catch (error) {
-            console.error(error);
-            setMessage("Une erreur s'est produite. Veuillez réessayer.");
+            
+            setMessage("An error has occurred. Please try again.");
           }
-      console.log(data)
+      
   }
 
   return (
     <div  className="w-200 py-16 ml-auto mr-auto ">
       <h1  className="text-5xl  text-white text-center" >Contact us</h1>
       <form
-          ref={form}
-          onSubmit={(e) => {
-              e.preventDefault();
-              HandleContact(new FormData(e.target));
-            }}
+         action={HandleContact}
            className="mt-8 flex flex-col gap-3">
         {
           input && (
@@ -100,12 +104,13 @@ const ContactUs = () => {
               })
           )
         }        <button
-                                  type="submit"
-                                  className="text-[#2d3250] mt-5 cursor-pointer  border-2 border-[#f9b17a] tracking-wide font-semibold bg-[#f9b17a] hover:bg-[#2d3250] hover:text-[#f9b17a] w-1/2 py-2 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                                 Envoyer
-                            </button>
+                    type="submit"
+                    className="text-[#2d3250] mt-5 cursor-pointer  border-2 border-[#f9b17a] tracking-wide font-semibold bg-[#f9b17a] hover:bg-[#2d3250] hover:text-[#f9b17a] w-1/2 py-2 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                                 Send
+                  </button>
 
                 {/* message goes here  */}
+                
                 {message && <p className="px-2 text-sm text-[#f9b17a]  font-medium bg-[#2d3250]  transform translate-y-1/2">{message}</p>}
           </form>
 

@@ -17,22 +17,23 @@ const SignUp = () => {
   }, [message]);
 
   const HandleSignUp = (formData) => {
-    const email = formData.get("email");
-    const name = formData.get("name");
-    const password = formData.get("password");
+  
+    const registeredUserEmail = formData.get("email");
+    const registeredUserName = formData.get("name");
+    const registeredUserPassword = formData.get("password");
     const confirmPassword = formData.get("confirmpassword");
 
-    if (password !== confirmPassword) {
+    if (registeredUserPassword !== confirmPassword) {
       setMessage("Passwords do not match! Try again");
       return;
     }
 
-    if (password.length < 6) {
+    if (registeredUserPassword.length < 6) {
       setMessage("Password must be at least 6 characters long");
       return;
     }
 
-    const data = { email, name, password };
+    const data = { registeredUserName,registeredUserPassword,registeredUserEmail };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     setMessage("Done! Please Login");
   };
@@ -43,11 +44,7 @@ const SignUp = () => {
         <h1 className="text-white text-2xl">Register Here!</h1>
         <p className="text-amber-50 text-sm mb-8">please signup to continue</p>
         <div className="flex flex-col text-white">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              HandleSignUp(new FormData(e.target));
-            }}
+          <form action={HandleSignUp}
           >
             <label className="text-white font-medium text-sm mb-4" htmlFor="name">Name:</label>
             <input
