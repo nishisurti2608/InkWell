@@ -25,8 +25,8 @@ function App() {
         <Route path="/write" element={<Write />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-    
-    
+
+
        <Footer/>
       </div>
       </BrowserRouter>

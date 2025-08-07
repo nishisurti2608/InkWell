@@ -2,13 +2,13 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaSquareGooglePlus } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { useState,useEffect } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 
 
 const Login = () => {
 
-  //state variable to display message 
+  //state variable to display message
 
 const[message,setMessage] = useState(" ")
 
@@ -26,30 +26,30 @@ const[message,setMessage] = useState(" ")
   
   const STORAGE_KEY =  import.meta.env.VITE_STORAGE_KEY;
 
-  //initializing navigation 
+  //initializing navigation
 
   const navigate = useNavigate();
 
   const handleLogin = (formData) => {
- 
+
     //fetching data from form entered by user
 
-    
+
       const userEnteredEmail =  formData.get("email")
       const userEnteredPassword = formData.get("password")
-  
-    
 
-    //fetching data from local storage 
+
+
+    //fetching data from local storage
 
 
     const data  = localStorage.getItem(STORAGE_KEY);
-    
+
     //data parsing from string to object and destructuring on the fly
 
     const {registeredUserName,registeredUserEmail,registeredUserPassword} = JSON.parse(data);
 
-    //checking data is matching with local storage or not 
+    //checking data is matching with local storage or not
 
     if(registeredUserEmail !== userEnteredEmail){
       setMessage("User not found! Try again")
@@ -67,9 +67,9 @@ const[message,setMessage] = useState(" ")
 
 localStorage.setItem("isLoggedIn", "true");
 localStorage.setItem("userName", registeredUserName);
-navigate("/dashboard"); 
+navigate("/dashboard");
 
-    
+
   }
 
   return (
@@ -118,8 +118,6 @@ navigate("/dashboard");
                             </button>
 
                 {/* message goes here  */}
-                    
-                    
                 {message && <p className="px-2 text-sm text-[#f9b17a]  font-medium bg-[#2d3250]  transform translate-y-1/2">{message}</p>}
           </form>
            <div className="px-2 text-sm text-white  font-medium bg-[#2d3250]  transform translate-y-1/2">

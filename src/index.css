@@ -8,5 +8,5 @@
 }
 
 .inputstyle{
-  @apply w-full px-8 py-4  font-medium bg-[#676f9d] border border-[#676f9d] placeholder-[#434769] text-sm focus:outline-none focus:border-[#f9b17a] focus:bg-[#414769];
+  @apply w-full px-8 py-4 text-white  font-medium bg-[#676f9d] border border-[#676f9d] placeholder-[#434769] text-sm focus:outline-none focus:border-[#f9b17a] focus:bg-[#414769];
 }

@@ -56,38 +56,38 @@ return (
             <p className="mt-2 text-gray-300">Looking to take your team away on a retreat to enjoy awesome food and take in
                 some sunshine? We have a list of places to do just that.
             </p>
-          
+
 <div className="mt-4">
   {blog.hashTags.map((tag) => <span key={tag} className="mr-3 px-3 py-1 text-sm font-medium rounded-full bg-[#161F30] text-[#f9b17a] inline-flex items-center">
       {tag}
         </span> )}
- 
-        
-  
-        
-        
+
+
+
+
+
         </div>
         <div className="mt-6 flex gap-4 items-center">
   <div className="flex items-center gap-1">
     <CiCalendarDate className="size-6 text-[#f9b17a]" />
     <span>{blog.date}</span>
   </div>
-  
+
   <div className="flex items-center gap-1">
     <FaHandsClapping className="size-6 text-[#f9b17a]" />
     <span>{blog.claps}</span>
   </div>
-  
+
   <div className="flex items-center gap-1">
     <TfiComment className="size-4 text-[#f9b17a]" />
     <span>{blog.comments}</span>
   </div>
-  
+
 </div>
 
 
         </div>
-       
+
     </div>
 </div>
               </li>
@@ -103,12 +103,12 @@ return (
         <Link to="/write" className="text-[#2d3250] text-base font-semibold mt-8 cursor-pointer  border-2 border-[#f9b17a] tracking-wide  bg-[#f9b17a] hover:bg-[#2d3250] hover:text-[#f9b17a] p-4 py-2 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
          Write Now
         </Link>
-        
+
       </div>
 
-    
+
       </>
-      
+
       )}
     </div>
   </div>
