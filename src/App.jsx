@@ -8,6 +8,7 @@ import Membership from "./components/pages/Membership"
 import OurStory from "./components/pages/OurStory"
 import Write from "./components/pages/Write"
 import Dashboard from "./components/Dashboard"
+import NotFound from "./components/pages/NotFound"
 
 function App() {
 
@@ -24,6 +25,8 @@ function App() {
         <Route path="/ourstory" element={<OurStory />} />
         <Route path="/write" element={<Write />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        {/* Catch-all route for 404 */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
 
